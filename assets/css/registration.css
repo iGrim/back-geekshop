@@ -1,0 +1,137 @@
+body {
+	--color-primary: #202125;
+	--color-primary-dark: #2a2c31;
+	--color-secondary: #FF4343;
+	--color-error: red;
+	--color-success: green;
+	--border-radius: 5px;
+
+
+	margin: 0;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+	background-color: #0d6efd;
+}
+.container{
+	width:  400px;
+	max-width: 400px;
+	margin: 1rem;
+	padding: 2rem;
+	box-shadow: 0 0 100px rgba(0, 0, 0, 0.3);
+	border-radius: var(--border-radius);
+	background-color: ghostwhite;
+}
+
+.container,
+.formInput,
+.formButton{
+	font: 500 1rem "Montserrat", sans-serif;
+}
+
+.form--hidden {
+	display: none;
+}
+
+.form > *:first-child {
+	margin-top: 0;
+}
+.form > *:last-child {
+	margin-top: 0;
+}
+.formMessage {
+	text-align: center;
+	margin-bottom: 1rem;
+}
+.formMessageSuccess {
+	color: var(--color-success);
+}
+.formMessageError {
+	color: var(--color-error);
+}
+.formTitle {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+.formInputGroup {
+	margin-bottom: 1rem;
+}
+.formInput {
+	display:  block;
+	width: 100%;
+	padding: 1rem;
+	box-sizing: border-box;
+	border-radius: var(--border-radius);
+	border: 1px solid #dddddd;	
+	outline: none;
+	background-color: #eeeeee;
+	transition: background 0.5s, border-color 0.5s;
+}
+
+.formInput:focus {
+	border-color: var(--color-primary);
+	background-color: #ffffff;
+}
+.formInputError {
+	color: var(--color-error);
+}
+.formInputMessageError {
+	margin-top: 0.5rem;
+	font-size: 0.75rem;
+	color: var(--color-error);
+}
+
+.fontButton {
+	text-decoration: none;
+	width: 100%;
+	padding: 1rem 2rem;
+	font-weight: bold;
+	font-size: 1.2rem;
+	color: #0d6efd;
+	border: none;
+	border-radius: var(--border-radius);
+	outline: none;
+	cursor: pointer;
+	background: skyblue;
+}
+.fontButton:hover{
+	background-color: var(--color-primary-dark);
+}
+.fontButton:active{
+	transform: scale(0.98);
+}
+
+.formText {
+	text-align: center;
+	text-align: center;
+	margin-top: 2rem;
+}
+
+.formLink {
+	color: var(--color-secondary);
+	cursor: pointer;
+	text-decoration: none;
+}
+.fontLink:hover {
+	text-decoration: underline;
+
+}
+.registrationBack{
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	transform: translateX(calc((100% - 100vw)/2));
+}
+.total{
+	z-index: -1000000;
+}
+
+.reg-btn{
+	margin-top: 35px;
+	margin-bottom: 15px;
+	text-align: center;
+}

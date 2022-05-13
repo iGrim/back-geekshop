@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <meta charset="utf-8">
+    <title>Geek Shop </title>
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/favorite.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/0e40f8dd3d.js" crossorigin="anonymous"></script> 
+<!-- script -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand color: red;" href="/"> GeekShop </a>
+   <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+   >
+      <span class="navbar-toggler-icon"></span>
+   </button>
+
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto my-auto">
+         <li class="nav-item">
+            <a class="nav-link" href="/">MAIN</a>
+         </li>
+         <li class="nav-item dropdown">
+            <a
+               class="nav-link dropdown-toggle"
+               href="#"
+               id="navbarDropdown"
+               role="button"
+               data-toggle="dropdown"
+               aria-haspopup="true"
+               aria-expanded="false"
+            >
+               LOG IN
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <a class="dropdown-item" href="login"> <i class="fas fa-sign-in-alt"></i>   sign in</a>
+               <a class="dropdown-item" href="login"><i class="fas fa-user-plus"></i>   sign up</a>
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="#"><i class="fas fa-question-circle"></i>   support</a>
+            </div>
+         </li>
+      </ul>
+	   <ul class="navbar-nav ml-auto my-auto">
+	   <li class="nav-item">
+            <a class="nav-link" href="favorite"><img src="img/fav.png" width="35px" height="auto;"></a>
+         </li>
+		  <li class="nav-item">
+            <a class="nav-link" href="korzina.html"><img src="img/korz.png" width="35px" height="auto;"></a>
+         </li>
+	   </ul>
+  	</div>
+</nav>
+	
+<div class="container-fluid">
+	<h1 class="mt-4 ml-5 mr-5" id="h1">Your favorite items</h1>
+</div>
+
+<div class="container-fluid ml-5 mt-4">
+	<div id="myBtnContainer">
+  <button class="btnnn active" onclick="filterSelection('all')"> Show all</button>
+  <button class="btnnn" onclick="filterSelection('T-shirt')"> T-shirt</button>
+  <button class="btnnn" onclick="filterSelection('accessories')"> Accessories</button>
+  <button class="btnnn" onclick="filterSelection('toys')"> Toys</button>
+  <button class="btnnn" onclick="filterSelection('stickers')"> Stickers</button>
+</div>
+</div>
+	
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btnnn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+	
+<div class="container-fluid mt-1 ml-4 mr-4">
+	<div class="row">
+
+		<div class="filterDiv T-shirt">
+		<div id="mySidenav" class="card" style="width: 20rem;">
+									  <a href="#" id="netflix">8500 tg</a>
+
+			<div class="card-body">
+  			<img src="img/aot%20shirt.png" alt="Avatar" style="width:100%">
+  				<div class="container">
+    				<h4><b>T - shirt</b></h4>
+    				<p>Attack on Titan Shirt</p>
+  				</div>
+			</div>
+		</div>
+		</div>
+		<div class="filterDiv T-shirt">
+		<div id="mySidenav" class="card" style="width: 20rem;">
+									  <a href="#" id="netflix">8500 tg</a>
+
+			<div class="card-body">
+  			<img src="img/aot%20shirt.png" alt="Avatar" style="width:100%">
+  				<div class="container">
+    				<h4><b>T - shirt</b></h4>
+    				<p>Attack on Titan Shirt</p>
+  				</div>
+			</div>
+		</div>
+		</div>
+		<div class="filterDiv accessories">
+		<div id="mySidenav" class="card" style="width: 20rem;">
+									  <a href="#" id="netflix">4500 tg</a>
+
+			<div class="card-body">
+  			<img src="img/cap.png" alt="Avatar" style="width:100%">
+  				<div class="container">
+    				<h4><b>Accessories</b></h4>
+    				<p>Sherlock's Hat</p>
+  				</div>
+			</div>
+		</div>
+		</div>
+		<div class="filterDiv T-shirt">
+		<div id="mySidenav" class="card" style="width: 20rem;">
+									  <a href="#" id="netflix">8500 tg</a>
+
+			<div class="card-body">
+  			<img src="img/aot%20shirt.png" alt="Avatar" style="width:100%">
+  				<div class="container">
+    				<h4><b>T - shirt</b></h4>
+    				<p>Attack on Titan Shirt</p>
+  				</div>
+			</div>
+		</div>
+		</div>
+		<div class="filterDiv T-shirt">
+		<div id="mySidenav" class="card" style="width: 20rem;">
+									  <a href="#" id="netflix">8500 tg</a>
+
+			<div class="card-body">
+  			<img id="myImg" src="img/aot%20shirt.png" alt="Avatar" style="width:100%">
+  				<div class="container">
+    				<h4><b>T - shirt</b></h4>
+    				<p>Attack on Titan Shirt</p>
+  				</div>
+			</div>
+		</div>
+		</div>
+		<div class="filterDiv stickers">
+		<div id="mySidenav" class="card" style="width: 20rem;">
+						  <a href="#" id="netflix">900 tg</a>
+			<div class="card-body">
+  			<img id="myImg" src="img/supernatural.png" alt="Avatar" style="width:100%">
+  				<div class="container">
+    				<h4><b>Stickers</b></h4>
+    				<p>Supernatural</p>
+  				</div>
+			</div>
+		</div>
+		</div>
+		<div class="filterDiv stickers">
+		<div id="mySidenav" class="card" style="width: 20rem;">
+			  <a href="#" id="netflix">700 tg</a>
+			<div class="card-body">
+  			<img id="myImg" src="img/netflix.png" alt="Avatar" style="width:100%">
+  				<div class="container">
+    				<h4><b>Stickers</b></h4>
+    				<p>Netflix</p>
+  				</div>
+			</div>
+		</div>
+		</div>
+		<div class="filterDiv toys">
+		<div id="mySidenav" class="card" style="width: 20rem;">
+			<a href="#" id="netflix">3000 tg</a>
+			<div class="card-body">
+  			<img id="myImg" src="img/hulk.png" alt="Avatar" style="width:100%">
+  				<div class="container">
+    				<h4><b>Toys</b></h4>
+    				<p>Hulk - Marvel</p>
+  				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+	
+<div class="container-fluid mt-4 ml-auto mr-auto" id="c1">
+	<button type="button" class="btn btn-dark" id="myBtn1" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-times"></i>   DELETE</button>
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete items from cart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are your sure?	
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button id="del" type="button" class="btn btn-danger" onclick="deleteCart()">Yes</button>
+      </div>
+    </div>
+	</div>
+	</div>
+	
+	<!-- cart button -->
+	<button type="button" class="btn btn-dark" id="myBtn"> <i class="fas fa-cart-arrow-down"></i>  ADD TO CART</button>
+	
+	<div class="toast">
+    <div class="toast-header">
+    	Item added
+    </div>
+    <div class="toast-body">
+		Selected items added to cart
+	</div>
+ 	</div>
+	
+	<script>
+	$(document).ready(function(){
+		$("#myBtn").click(function(){
+    $('.toast').toast('show');
+	});
+	});
+	</script>
+	</div>
+
+
+
+<img onclick="myMove()" id="buttonn1" src="img/titan.png" alt="Girl in a jacket" width="1.5%" height="1.5%">
+
+<script>
+function myMove() {
+  let id = null;
+  const elem = document.getElementById("buttonn1");   
+  let pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos--; 
+      elem.style.left = pos + "px"; 
+    }
+  }
+}
+</script>
+	
+
+	
+<!-- Footer -->
+<footer class="bg-dark text-center text-white">
+  <div class="container p-4">
+    <section class="mb-4">
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/iGrim/geekshop-back" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+
+    <section class="">
+      <form action="">
+        <div class="row d-flex justify-content-center">
+          
+
+          <div class="col-md-5 col-12">
+            
+            <div class="form-outline form-white mb-4">
+              <input id="myInput" type="email" id="form5Example21" class="form-control" />
+              <label class="form-label" for="form5Example21"> </label>
+            </div>
+          </div>
+
+          <div class="col-auto">
+            <button id="myBtn" onclick="javascript:alert('15% discount activated')" type="submit" class="btn btn-outline-light mb-4">
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section class="">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Terms and conditions</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Privacy</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Contact us</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Items list</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Copyright:
+    <a class="text-white" href="start.html">GeekShop</a>
+  </div>
+
+</footer>
+	
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+	
+
+
+	
+</body>
+</html>

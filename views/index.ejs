@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Geek Shop </title>
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/favorite.css">
+    <link rel="stylesheet" href="css/about.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0e40f8dd3d.js" crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+
+    <!-- script -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+</head>
+<body>
+<header id="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand color: red;" href="/"> GeekShop </a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto my-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">MAIN</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            id="navbarDropdown"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                    >
+                        LOG IN
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="login"> <i class="fas fa-sign-in-alt"></i>   sign in</a>
+                        <a class="dropdown-item" href="login"><i class="fas fa-user-plus"></i>   sign up</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#"><i class="fas fa-question-circle"></i>   support</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto my-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="favorite"><img src="img/fav.png" width="35px" height="auto;"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="korzina.html"><img src="img/korz.png" width="35px" height="auto;"></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-xl-7 col-lg-9 text-center">
+                <h1>GEEKSHOP</h1>
+                <h2>Best geek shop ever</h2>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="#about" class="btn-get-started scrollto"  >Visit catalog</a>
+        </div>
+
+        <div class="row icon-boxes">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><span class="iconify" data-icon="ri:stack-line"></span></div>
+                    <h4 class="title"><a href="">Quantity</a></h4>
+                    <p class="description">You can find products on absolutely all popular cinema universe, series, anime.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div class="icon"><span class="iconify" data-icon="ri:palette-line"></span>
+                    </div>
+                    <h4 class="title"><a href="">Design</a></h4>
+                    <p class="description">Products sold by our store have a unique and inimitable design.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
+                <div class="icon-box">
+                    <div class="icon"><span class="iconify" data-icon="ri:command-line"></span>
+                    </div>
+                    <h4 class="title"><a href="">Opportunities</a></h4>
+                    <p class="description">Our site has numerous payment methods with worldwide shipping.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="500">
+                <div class="icon-box">
+                    <div class="icon"><span class="iconify" data-icon="ri:fingerprint-line"></span>
+                    </div>
+                    <h4 class="title"><a href="">Security</a></h4>
+                    <p class="description">All purchases on our site are protected. All data is strictly protected.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>About Us</h2>
+            <p>In our site you can buy all sorts of things from numerous movie universes, anime and series.
+                We have everything from an ordinary pen to clothes.
+                You can make a purchase online, or visit our store in the city of Nur-Sultan. </p>
+        </div>
+    </div>
+</section>
+
+<section id="counts" class="counts section-bg">
+    <div class="container">
+
+        <div class="row justify-content-end">
+
+            <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                <div class="count-box">
+                    <span data-purecounter-start="0" data-purecounter-end="2565" data-purecounter-duration="2" class="purecounter"></span>
+                    <p>Happy Clients</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                <div class="count-box">
+                    <span data-purecounter-start="0" data-purecounter-end="185" data-purecounter-duration="2" class="purecounter"></span>
+                    <p>Items count</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                <div class="count-box">
+                    <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="2" class="purecounter"></span>
+                    <p>Partners</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                <div class="count-box">
+                    <span data-purecounter-start="0" data-purecounter-end="2022" data-purecounter-duration="2" class="purecounter"></span>
+                    <p>Since</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Slideshow container -->
+<div class="container-fluid">
+
+    <div id="slidesh" class="slideshow-container">
+
+        <div class="mySlides fade">
+            <img src="img/aott.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="img/aottt.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="img/aotttt.jpg" style="width:100%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+</div>
+
+<section id="about1" class="about">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2 id="soz">GEEKSHOP</h2>
+        </div>
+    </div>
+</section>
+
+<section id="cta" class="cta">
+    <div class="container">
+        <div class="text-center">
+            <h3>Reviews</h3>
+            <p> The opinions of our customers are very important to us, so you can do to improve the quality of service.</p>
+            <a class="cta-btn" href="#comments">Leave feedback</a>
+        </div>
+    </div>
+</section>
+
+<div class="container" id="comments">
+    <div class="row">
+
+        <div class="col-lg-4 comments">
+            <form>
+                <div class="form-group">
+                    <label for="comment-name">User:</label>
+                    <input type="email" class="form-control" id="comment-name"  placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="comment-body">Comment:</label>
+                    <textarea type="password" class="form-control" id="comment-body" placeholder="comment"></textarea>
+                </div>
+                <div class="form-group form-check text-right">
+                    <button type="submit" id="comment-add" class="btn btn-danger button">Add Comment</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4">
+
+        </div>
+        <div class="col-lg-4">
+            <div id="comment-field"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="rating">
+    <span class="heading">Rating based on comments: </span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <p>4.7 average based on 254 reviews.</p>
+    <hr style="border:3px solid #f1f1f1">
+
+    <div class="row">
+        <div class="side">
+            <div>5 star</div>
+        </div>
+        <div class="middle">
+            <div class="bar-container">
+                <div class="bar-5"></div>
+            </div>
+        </div>
+        <div class="side right">
+            <div>150</div>
+        </div>
+        <div class="side">
+            <div>4 star</div>
+        </div>
+        <div class="middle">
+            <div class="bar-container">
+                <div class="bar-4"></div>
+            </div>
+        </div>
+        <div class="side right">
+            <div>63</div>
+        </div>
+        <div class="side">
+            <div>3 star</div>
+        </div>
+        <div class="middle">
+            <div class="bar-container">
+                <div class="bar-3"></div>
+            </div>
+        </div>
+        <div class="side right">
+            <div>15</div>
+        </div>
+        <div class="side">
+            <div>2 star</div>
+        </div>
+        <div class="middle">
+            <div class="bar-container">
+                <div class="bar-2"></div>
+            </div>
+        </div>
+        <div class="side right">
+            <div>6</div>
+        </div>
+        <div class="side">
+            <div>1 star</div>
+        </div>
+        <div class="middle">
+            <div class="bar-container">
+                <div class="bar-1"></div>
+            </div>
+        </div>
+        <div class="side right">
+            <div>2</div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="erwin" class="container-fluid">
+    <img class="" id="buttonn" src="img/erwin.png" alt="Girl in a jacket" width="45px" height="55px">
+</div>
+
+<!-- Footer -->
+
+<footer class="bg-dark text-center text-white">
+    <div class="container p-4">
+        <section class="mb-4">
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-facebook-f"></i
+                ></a>
+
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-twitter"></i
+                ></a>
+
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-instagram"></i
+                ></a>
+
+            <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/iGrim/geekshop-back" role="button"
+            ><i class="fab fa-github"></i
+                ></a>
+        </section>
+
+        <section class="">
+            <form action="">
+                <div class="row d-flex justify-content-center">
+
+
+                    <div class="col-md-5 col-12">
+
+                        <div class="form-outline form-white mb-4">
+                            <input id="myInput" type="email" id="form5Example21" class="form-control" />
+                            <label class="form-label" for="form5Example21"> </label>
+
+                        </div>
+                    </div>
+
+                    <div class="col-auto">
+                        <button id="myBtn" onclick="javascript:alert('15% discount activated')" type="submit" class="btn btn-outline-light mb-4">
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <section class="" >
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Terms and conditions</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-white">></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Privacy</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-white">></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Contact us</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-white">></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Items list</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-white">></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-white" href="start.html">GeekShop</a>
+    </div>
+</footer>
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/purecounter.js"></script>
+<script src="js/comment.js"></script>
+<script src="js/main.js"></script>
+
+
+</body>
+</html>
