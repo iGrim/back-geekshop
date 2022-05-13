@@ -25,7 +25,7 @@ mongoose.connect("mongodb+srv://Grim:h8VSt3Y8uBpehbXc@geekshopnew-ejs.8i1l4.mong
     }
 })
 
-const port = 4000;
+const port = process.env.PORT || 80;
 
 const UserRoute = require('./app/routes/User')
 app.use('/user',UserRoute)
