@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Items</title>
+    <%- include('layout/head'); %>
+</head>
+<body class="bg-1 d-flex flex-column min-vh-100" style="margin: 0px auto">
+<div>
+    <%- include('layout/navbar'); %>
+
+    <h2 class="header-1 mt-3 text-light">Items</h2>
+
+    <div class="d-flex justify-content-center">
+        <form class="input-group mb-3" action="/items/find/" method="post" style="max-width: 500px;">
+            <input type="text" class="form-control bg-transparent border border-light text-light" name="searchReq" placeholder="Search">
+            <button class="btn btn-outline-light " type="submit" id="button-addon2"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+
+
+
+    <% if(data.length){ %>
+        <div class="movie-container row row-cols-1 row-cols-md-3 d-flex justify-content-center mt-3 w-100">
+            <% data.forEach(function(movie) { %>
+                <a class="movie-box bg-light mb-3" href="/items/<%=movie.id%>" style="text-decoration: none">
+                    <img class="movie-cover" src="<%= movie.cover%>">
+                    <h2 class="movie-title text-dark mt-1">
+                        <%= movie.title %> (<%= movie.year %>)
+                    </h2>
+                    <h2 class="movie-rating text-dark">
+                        <%= movie.director %>
+                    </h2>
+                </a>
+            <% }); %>
+        </div>
+    <% }else{ %>
+        <div class="d-flex justify-content-center  row-cols-1 row-cols-lg-3 mt-3">
+            <div class="card bg-dark align-items-center rounded pb-3 border border-gray" style="max-width: 800px">
+                <div class="text-light mt-3">
+                    <span>No items found </span>
+                </div>
+            </div>
+        </div>
+    <% } %>
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-light text-dark" href="/admin/items/add">
+            +Add items
+        </a>
+    </div>
+</div>
+
+<%- include('layout/footer'); %>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile</title>
+    <%- include('layout/head'); %>
+</head>
+<body class="bg-1 d-flex flex-column min-vh-50" style="margin: 0px auto">
+
+<div>
+    <%- include('layout/navbar'); %>
+
+    <div class="container" id="conntt">
+    <div class="profile-user-information">
+        <h1 class="profile-username">
+            <%= data.username %>
+        </h1>
+
+    </div>
+    <h4 class="profile-user-information text-muted">
+        <%= data.email %>
+    </h4>
+    <div class="text-center">
+        <a class="btn btn-light" href="/user/<%=data.id%>/edit">
+            Edit
+        </a>
+    </div>
+
+</div>
+</div>
+
+<%- include('layout/footer'); %>
+</body>
+</html>
+
+
