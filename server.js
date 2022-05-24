@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override')
 
+
+
 app.use(methodOverride('_method'))
 
 
@@ -36,7 +38,9 @@ app.use('/user',UserRoute)
 const test = require('./routes/itemRoute')
 app.use('/items',test)
 
-
+const swaggerUi = require('swagger-ui-express')
+swaggerDocument = require('./swagger.json');
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get('/', (req, res, next) => {
     res.render('index', {
