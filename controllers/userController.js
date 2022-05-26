@@ -1,13 +1,13 @@
     const UserModel = require('../model/userModel')
+    const passport = require("passport");
     const path = require("path");
     //Create
     exports.create = async (req, res) => {
-        if (!req.body.email && !req.body.username && !req.body.password) {
+        if (!req.body.email && !req.body.password) {
             res.status(400).send({ message: "Entered data is empty!" });
         }
 
         const user = new UserModel({
-            email: req.body.email,
             username: req.body.username,
             password: req.body.password,
             description: ""
@@ -18,7 +18,7 @@
             //     message:"User created successfully!",
             //     user:data
             // });
-            res.redirect("/user/" + data.id)
+            res.redirect("/users" + data.id)
         }).catch(err => {
             res.status(500).send({
                 message: err.message || "Error occurred while creating user"
@@ -89,7 +89,7 @@
                 });
             }else{
                 // res.send({ message: "User updated successfully!" })
-                res.redirect("/user/" + id)
+                res.redirect("/users" + id)
             }
         }).catch(err => {
             res.status(500).send({
@@ -105,7 +105,7 @@
                     message: `User not found`
                 });
             } else {
-                res.redirect("/user/")
+                res.redirect("/users")
                 // res.send({
                 //     message: "User has been deleted!"
                 // });
@@ -116,3 +116,35 @@
             });
         });
     };
+
+    exports.register = async (req, res) => {
+        //level 5
+        UserModel.register({username: req.body.username}, req.body.password, function (err, user) {
+            if (err){
+                console.log(err)
+                res.redirect("/register")
+            }else {
+                passport.authenticate("local")(req, res, function () {
+                    res.redirect("/favorite")
+                });
+            }
+        })
+    };
+
+        exports.login = async (req, res) => {
+            //level 5
+            let user =new UserModel({
+                username:req.body.username,
+                password:req.body.password
+            })
+
+            req.login(user, function (err){
+                if (err){
+                    console.log(err)
+                }else {
+                    passport.authenticate("local")(req, res, function () {
+                        res.redirect("/favorite")
+                    });
+                }
+            })
+        };

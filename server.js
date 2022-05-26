@@ -1,27 +1,35 @@
+require('dotenv').config();
+
 const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
 const methodOverride = require('method-override')
 
-
+const session = require('express-session')
+const passport=require('passport')
 
 app.use(methodOverride('_method'))
-
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-app.use(express.static('assets'))
-
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-mongoose.Promise = global.Promise;
+app.use(express.static('assets'))
 
-const fs = require('fs')
-const path = require('path')
-const user = require("./model/user");
+app.use(session({
+    secret: "then we need to replace it to .env file",
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+
 mongoose.connect("mongodb+srv://Grim:h8VSt3Y8uBpehbXc@geekshopnew-ejs.8i1l4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",(err)=>{
     if(err){
         console.log(err)
@@ -31,42 +39,63 @@ mongoose.connect("mongodb+srv://Grim:h8VSt3Y8uBpehbXc@geekshopnew-ejs.8i1l4.mong
     }
 })
 
+const UserRoute = require('./routes/userRoute')
 
-const UserRoute = require('./routes/User')
-app.use('/user',UserRoute)
+app.use('/',UserRoute)
 
-const test = require('./routes/itemRoute')
-app.use('/items',test)
+app.get("/", function(req, res){
+    res.render("index");
+});
 
-const swaggerUi = require('swagger-ui-express')
-swaggerDocument = require('./swagger.json');
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.get("/films", function(req, res){
+    res.render("films");
+});
 
-app.get('/', (req, res, next) => {
-    res.render('index', {
-        title: 'test'
-    });
+app.get("/register", function(req, res){
+    res.render("register");
+});
+
+app.get("/login", function(req, res){
+    res.render("login");
 });
 
 
-app.get('/favorite', (req, res, next) => {
-    res.render('favorite', {
-        title: 'test'
-    });
-});
-
-app.get('/login', (req, res, next) => {
-    res.render('login', {
-        title: 'test'
-    });
-});
-
-app.use("/register", require("./routes/register"));
-app.use('/user', require('./routes/userRoute'))
-app.use('/users', require('./routes/userRoute'))
-
-app.use('/items', require('./routes/itemRoute'))
 app.use("/admin/items/add", require("./routes/add-item"));
+
+//level 5
+app.get("/favorite", function(req, res){
+    if(req.isAuthenticated()){
+        res.render("favorite")
+    }else{
+        res.redirect("/login")
+    }
+});
+
+app.get("/secrets", function(req, res){
+    if(req.isAuthenticated()){
+        res.render("secrets")
+    }else{
+        res.redirect("/login")
+    }
+});
+
+//level 6
+app.get("/auth/google",
+    passport.authenticate('google',{ scope: ["profile", "email"] })
+)
+
+app.get('/auth/google/favorite',
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    function(req, res) {
+        // Successful authentication, redirect home.
+        res.redirect('/favorite');
+    });
+//
+
+app.get("/logout",function (req, res){
+    req.logout()
+    res.redirect("/")
+})
 
 const port = process.env.PORT || 80;
 
@@ -74,4 +103,6 @@ app.listen(port, () =>
     console.log(`App listening at http://localhost:${port}`)
 );
 
-//fdfs
+const swaggerUi = require('swagger-ui-express')
+swaggerDocument = require('./swagger.json');
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

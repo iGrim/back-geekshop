@@ -1,192 +1,62 @@
 <!DOCTYPE html>
-<html> 
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Geek Shop </title>
-    <!-- stylesheet -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/favorite.css">
-	<link rel="stylesheet" href="css/about.css">
-	
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/0e40f8dd3d.js" crossorigin="anonymous"></script> 
-	<script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
-
-<!-- script -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <title>Sign up</title>
+    <%- include('layout/head'); %>
 </head>
-<body>
-<header id="header">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand color: red;" href="/"> GeekShop </a>
-   <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-   >
-      <span class="navbar-toggler-icon"></span>
-   </button>
+<body class="bg-1 d-flex flex-column min-vh-50" style="margin: 0px auto">
+<div>
+    <%- include('layout/navbar'); %>
 
-   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto my-auto">
-         <li class="nav-item">
-            <a class="nav-link" href="/">MAIN</a>
-         </li>
-         <li class="nav-item dropdown">
-            <a
-               class="nav-link dropdown-toggle"
-               href="#"
-               id="navbarDropdown"
-               role="button"
-               data-toggle="dropdown"
-               aria-haspopup="true"
-               aria-expanded="false"
-            >
-               LOG IN
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-               <a class="dropdown-item" href="login"> <i class="fas fa-sign-in-alt"></i>   sign in</a>
-               <a class="dropdown-item" href="register"><i class="fas fa-user-plus"></i>   sign up</a>
-               <div class="dropdown-divider"></div>
-               <a class="dropdown-item" href="#"><i class="fas fa-question-circle"></i>   support</a>
+    <div class="container py-2 mb-0 mt-5">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col col-xl-4">
+                <div class="card bg-white" style="border-radius: 1rem;">
+                    <div class="row g-0">
+                        <div class="d-flex align-items-center">
+                            <div class="card-body  text-black">
+                                <form action="/user/login" method="post">
+                                    <h1 class="fw-normal mb-3 pb-3 text-black">
+                                        Sign in
+                                    </h1>
+                                    <div class="form-floating form-group mb-3">
+                                        <input type="email" name="username" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                                        <label for="floatingInput"><i class="fa-solid fa-envelope"></i> Email address</label>
+                                        <div class="invalid-feedback">
+                                            User with this email is already exists
+                                        </div>
+                                    </div>
+                                    <div class="form-floating form-group mb-3">
+                                        <input type="password" name="password" minlength="8" class="form-control" id="floatingPassword" placeholder="Password" required>
+                                        <label for="floatingPassword"><i class="fa-solid fa-lock"></i> Password</label>
+                                        <div class="invalid-feedback">
+                                            Password is empty
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <a class="btn btn-block" href="/auth/google" role="button">
+                                                    <i class="fab fa-google"></i>
+                                                    Sign In with Google
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-lg btn-dark rounded-pill mb-4" type="submit">Login</button>
+                                    <p style="color: darkgray">Wanna register? <a class="text-info">Sign up</a></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </li>
-      </ul>
-	   <ul class="navbar-nav ml-auto my-auto">
-	   <li class="nav-item">
-            <a class="nav-link" href="favorite"><img src="img/fav.png" width="35px" height="auto;"></a>
-         </li>
-		  <li class="nav-item">
-            <a class="nav-link" href="korzina.html"><img src="img/korz.png" width="35px" height="auto;"></a>
-         </li>
-	   </ul>
-  	</div>
-	</nav>
-<header class="container">
-      <div class="header__content">
-        <form>
-          <input type="text" class="header__search" placeholder="Search" />
-        </form>
-      </div>
-    </header>
-    <div class="container">
-      <div class="movies"></div>
+        </div>
     </div>
-    <script src="js/app.js"></script>
-	
-<!-- Footer -->
 
-<footer class="bg-dark text-center text-white">
-<div class="container p-4">
-<section class="mb-4">
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-twitter"></i
-      ></a>
-
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-instagram"></i
-      ></a>
-
-      <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/iGrim/geekshop-back" role="button"
-        ><i class="fab fa-github"></i
-      ></a>
-</section>
-
-<section class="">
-      <form action="">
-        <div class="row d-flex justify-content-center">
-          
-
-          <div class="col-md-5 col-12">
-            
-            <div class="form-outline form-white mb-4">
-              <input id="myInput" type="email" id="form5Example21" class="form-control" />
-				              <label class="form-label" for="form5Example21"> </label>
-
-            </div>
-          </div>
-
-          <div class="col-auto">
-            <button id="myBtn" onclick="javascript:alert('15% discount activated')" type="submit" class="btn btn-outline-light mb-4">
-              Subscribe
-            </button>
-          </div>
-        </div>
-      </form>
-</section>
-
-<section class="" >
-      <div class="row">
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Terms and conditions</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-white">></a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Privacy</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-white">></a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Contact us</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-white">></a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Items list</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-white">></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-</section>
 </div>
 
-<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2022 Copyright:
-    <a class="text-white" href="start.html">GeekShop</a>
-</div>
-</footer>
-	
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>	
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="js/purecounter.js"></script>
-<script src="js/comment.js"></script>
-<script src="js/main.js"></script>
+<%- include('layout/footer'); %>
 
-	
 </body>
 </html>
